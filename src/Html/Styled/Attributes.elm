@@ -12,7 +12,7 @@ module Html.Styled.Attributes exposing
     , ismap, usemap, shape, coords
     , src, height, width, alt
     , autoplay, controls, loop, preload, poster, default, kind, srclang
-    , sandbox, srcdoc
+    , sandbox, srcdoc, allow
     , reversed, start
     , align, colspan, rowspan, headers, scope
     , accesskey, contenteditable, contextmenu, dir, draggable, dropzone
@@ -97,7 +97,7 @@ just search the page for `video` if you want video stuff.
 
 ## iframes
 
-@docs sandbox, srcdoc
+@docs sandbox, srcdoc, allow
 
 
 # Ordered Lists
@@ -513,6 +513,14 @@ override the content of the `src` attribute if it has been specified.
 srcdoc : String -> Attribute msg
 srcdoc =
     stringProperty "srcdoc"
+
+
+{-| Property for selectively enabling or disabling feature policies such as `"fullscreen"` in `iframe`'s
+for a list of allowed values see [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy#Granular_control_over_certain_features)
+-}
+allow : String -> Attribute msg
+allow =
+    stringProperty "allow"
 
 
 
